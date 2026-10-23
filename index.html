@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#263b2a"><meta name="description" content="Painel de gestão de estoque, produtos e financeiro da Mô Saboaria Artesanal"><meta name="color-scheme" content="light dark"><title>Mô Saboaria | Gestão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><img src="logo-mo.png" alt="Logo Mô Saboaria"><div><b>Mô Saboaria</b><small>GESTÃO ARTESANAL</small></div></div>
+  <div class="workspace"><span class="workspace-dot"></span><div><b>Ateliê principal</b><small>Ambiente de trabalho</small></div><span class="chevron">⌄</span></div>
+  <nav>
+    <p class="nav-label">VISÃO GERAL</p>
+    <button class="nav-item active" data-page="dashboard"><span>◫</span> Visão geral</button>
+    <p class="nav-label">OPERAÇÃO</p>
+    <button class="nav-item" data-page="products"><span>▦</span> Produtos e estoque <em id="lowBadge">0</em></button>
+    <button class="nav-item" data-page="transactions"><span>↔</span> Movimentações</button>
+    <button class="nav-item" data-page="suppliers"><span>♧</span> Fornecedores</button>
+    <p class="nav-label">ANÁLISES</p>
+    <button class="nav-item" data-page="reports"><span>▤</span> Relatórios</button>
+    <button class="nav-item" data-page="settings"><span>⚙</span> Dados e backup</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="help-icon">✦</div><div><b>Feito com cuidado</b><small>Seu ateliê, organizado.</small></div></div>
+</aside>
+<main class="main">
+  <header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="breadcrumbs">Mô Saboaria <span>/</span> <b id="crumb">Visão geral</b></div><div class="top-actions"><span class="today" id="today"></span><button class="icon-btn" title="Alternar tema claro/escuro" id="themeBtn" aria-label="Alternar tema">◐</button><button class="icon-btn" title="Alertas de estoque" id="notificationBtn" aria-label="Alertas de estoque">♧<i></i></button><div class="avatar" title="Mô Saboaria">Mô</div></div></header>
+  <section class="content">
+    <div class="page-heading"><div><div class="eyebrow">SEU NEGÓCIO EM HARMONIA</div><h1 id="pageTitle">Bom dia, vamos cuidar do seu negócio.</h1><p id="pageSubtitle">Acompanhe os números e mantenha tudo fluindo com leveza.</p></div><button class="primary-btn" id="quickAdd">＋ Novo lançamento</button></div>
+    <div id="pageContent"></div>
+    <footer>© 2026 Mô Saboaria Artesanal <span>Organização que floresce.</span></footer>
+  </section>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><section class="modal" role="dialog" aria-modal="true"><div class="modal-head"><div><div class="eyebrow">NOVO REGISTRO</div><h2 id="modalTitle">Adicionar lançamento</h2></div><button class="icon-btn" id="closeModal">×</button></div><form id="entryForm"><div id="formFields" class="form-grid"></div><div class="modal-actions"><button type="button" class="secondary-btn" id="cancelModal">Cancelar</button><button class="primary-btn" type="submit">Salvar registro</button></div></form></section></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script><script>if ('serviceWorker' in navigator && location.protocol.startsWith('http')) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {})); }</script>
+</body></html>
